@@ -67,6 +67,7 @@
     NSDate *dayDate = _startDate;
     
     for(UIView<JTCalendarDay> *dayView in _daysViews){
+	    dayView.hidden = NO;
         // Must done before setDate to dayView for `prepareDayView` method
         if(!enable){
             [dayView setIsFromAnotherMonth:NO];
@@ -76,7 +77,15 @@
                 [dayView setIsFromAnotherMonth:NO];
             }
             else{
-                [dayView setIsFromAnotherMonth:YES];
+		    
+		    if (_manager.settings.dayShowMode == JTCalendarDayShowModeNone && !_manager.settings.weekModeEnabled)
+		    {
+			    dayView.hidden = YES;
+		    }
+		    else
+		    {
+		    	[dayView setIsFromAnotherMonth:YES];
+		    }
             }
         }
         
@@ -94,7 +103,6 @@
             UIView<JTCalendarDay> *dayView = [_manager.delegateManager buildDayView];
             [_daysViews addObject:dayView];
             [self addSubview:dayView];
-            
             dayView.manager = _manager;
         }
     }

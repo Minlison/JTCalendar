@@ -169,6 +169,8 @@
 				TargetAttributes = {
 					AB6843DE1A06FCE2000ADE68 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = CH5MP38VP6;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -364,11 +366,14 @@
 			baseConfigurationReference = EA29A33B12777736F86B89BA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CH5MP38VP6;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.eivo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c8d7f495-fa60-46c4-8567-3e2da5f0e092";
+				PROVISIONING_PROFILE_SPECIFIER = iChengzivrWildCard;
 			};
 			name = Debug;
 		};
@@ -377,11 +382,14 @@
 			baseConfigurationReference = ACB1558A205302184CDC8B78 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CH5MP38VP6;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.eivo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c8d7f495-fa60-46c4-8567-3e2da5f0e092";
+				PROVISIONING_PROFILE_SPECIFIER = iChengzivrWildCard;
 			};
 			name = Release;
 		};

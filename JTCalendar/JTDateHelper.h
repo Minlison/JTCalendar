@@ -20,6 +20,7 @@
 - (NSUInteger)numberOfWeeks:(NSDate *)date;
 
 - (NSDate *)firstDayOfMonth:(NSDate *)date;
+- (NSDate *)firstWeekDayOfWeekInSameMonth:(NSDate *)date;
 - (NSDate *)firstWeekDayOfMonth:(NSDate *)date;
 - (NSDate *)firstWeekDayOfWeek:(NSDate *)date;
 

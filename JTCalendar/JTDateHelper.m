@@ -124,6 +124,47 @@
     return [self.calendar dateFromComponents:componentsNewDate];
 }
 
+- (NSDate *)firstWeekDayOfWeekInSameMonth:(NSDate *)date
+{
+	NSDate *firstWeekDay = [self firstWeekDayOfWeek:date];
+	
+	BOOL isSameWeek = [self date:date isTheSameWeekThan:firstWeekDay];
+	BOOL isSameMonth = [self date:date isTheSameMonthThan:firstWeekDay];
+	
+	if (!isSameMonth)
+	{
+		return firstWeekDay;
+	}
+	return firstWeekDay;
+	
+	
+	
+	BOOL isFirstWeekBefore = [self date:date isEqualOrAfter:firstWeekDay];
+	
+	NSDateComponents *componentsCurrentDate = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitWeekday|NSCalendarUnitWeekOfMonth fromDate:date];
+	BOOL firstWeekday = componentsCurrentDate.day < 8; // 第一个星期
+	BOOL lastWeekday = componentsCurrentDate.day > 24; // 最后一个星期
+	
+	if (!isSameMonth && firstWeekDay)
+	{
+		return date;
+	}
+	else if (!isSameMonth && lastWeekday)
+	{
+		return firstWeekDay;
+	}
+	
+	while (![self date:firstWeekDay isTheSameMonthThan:date] && [self date:firstWeekDay isEqualOrBefore:date])
+	{
+		firstWeekDay = [self addToDate:firstWeekDay days:1];
+		if ([self date:firstWeekDay isEqualOrAfter:[self lastDayOfMonth:date]])
+		{
+			return date;
+		}
+	}
+	return firstWeekDay;
+}
+
 #pragma mark - Comparaison
 
 - (BOOL)date:(NSDate *)dateA isTheSameMonthThan:(NSDate *)dateB
